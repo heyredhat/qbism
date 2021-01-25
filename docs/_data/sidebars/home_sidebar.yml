@@ -10,6 +10,18 @@ entries:
       title: Overview
       url: /
     - output: web,pdf
+      title: Krauss Operators
+      url: krauss.html
+    - output: web,pdf
+      title: POVM's
+      url: povm.html
+    - output: web,pdf
+      title: SIC-POVM's
+      url: sics.html
+    - output: web,pdf
+      title: Utils
+      url: utils.html
+    - output: web,pdf
       title: The Weyl-Heisenberg Group
       url: weyl_heisenberg.html
     output: web

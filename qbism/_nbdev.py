@@ -2,13 +2,39 @@
 
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
-index = {"clock": "weyl_heisenberg.ipynb",
+index = {"apply_krauss": "krauss.ipynb",
+         "partial_trace_krauss": "krauss.ipynb",
+         "weyl_heisenberg_povm": "povm.ipynb",
+         "sic_povm": "povm.ipynb",
+         "povm_phi": "povm.ipynb",
+         "povm_gram": "povm.ipynb",
+         "dm_probs": "povm.ipynb",
+         "probs_dm": "povm.ipynb",
+         "conditional_probs": "povm.ipynb",
+         "tensor_povm": "povm.ipynb",
+         "upgrade_povm": "povm.ipynb",
+         "apply_dims": "povm.ipynb",
+         "povm_map": "povm.ipynb",
+         "implement_povm": "povm.ipynb",
+         "load_fiducial": "sics.ipynb",
+         "sic_states": "sics.ipynb",
+         "sic_gram": "sics.ipynb",
+         "hoggar_fiducial": "sics.ipynb",
+         "hoggar_indices": "sics.ipynb",
+         "hoggar_povm": "sics.ipynb",
+         "flatten": "utils.ipynb",
+         "clock": "weyl_heisenberg.ipynb",
          "shift": "weyl_heisenberg.ipynb",
          "displace": "weyl_heisenberg.ipynb",
+         "weyl_heisenberg_indices": "weyl_heisenberg.ipynb",
          "displacement_operators": "weyl_heisenberg.ipynb",
          "weyl_heisenberg_states": "weyl_heisenberg.ipynb"}
 
-modules = ["weyl_heisenberg.py"]
+modules = ["krauss.py",
+           "povm.py",
+           "sics.py",
+           "utils.py",
+           "weyl_heisenberg.py"]
 
 doc_url = "https://heyredhat.github.io/qbism/qbism/"
 
