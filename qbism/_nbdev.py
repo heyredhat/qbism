@@ -2,9 +2,13 @@
 
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
-index = {}
+index = {"clock": "weyl_heisenberg.ipynb",
+         "shift": "weyl_heisenberg.ipynb",
+         "displace": "weyl_heisenberg.ipynb",
+         "displacement_operators": "weyl_heisenberg.ipynb",
+         "weyl_heisenberg_states": "weyl_heisenberg.ipynb"}
 
-modules = []
+modules = ["weyl_heisenberg.py"]
 
 doc_url = "https://heyredhat.github.io/qbism/qbism/"
 
