@@ -1,10 +1,9 @@
 {
   "qbism": {
     "Overview": "/",
-    "Krauss Operators": "krauss.html",
-    "POVM's": "povm.html",
-    "SIC-POVM's": "sics.html",
-    "Utils": "utils.html",
-    "The Weyl-Heisenberg Group": "weyl_heisenberg.html"
+    "The Weyl-Heisenberg Group": "heisenberg.html",
+    "SIC-POVM's": "01sics.html",
+    "POVM's": "02povm.html",
+    "Krauss Operators": "03krauss.html"
   }
 }
