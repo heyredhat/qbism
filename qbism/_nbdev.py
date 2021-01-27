@@ -28,6 +28,7 @@ index = {"clock": "00weyl_heisenberg.ipynb",
          "upgrade_povm": "02povm.ipynb",
          "apply_dims": "02povm.ipynb",
          "implement_povm": "02povm.ipynb",
+         "discriminator_povm": "02povm.ipynb",
          "apply_krauss": "03krauss.ipynb",
          "partial_trace_krauss": "03krauss.ipynb",
          "povm_map": "03krauss.ipynb"}

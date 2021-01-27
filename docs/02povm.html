@@ -656,6 +656,43 @@ $$ \hat{R}^{T} \hat{\Phi} \hat{R} \hat{\Phi} = \hat{I}_{d^2}$$
 </div>
     {% endraw %}
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Finally, note how operators compose:</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">rho</span> <span class="o">=</span> <span class="n">qt</span><span class="o">.</span><span class="n">rand_dm</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">povm</span> <span class="o">=</span> <span class="n">sic_povm</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<span class="n">phi</span> <span class="o">=</span> <span class="n">povm_phi</span><span class="p">(</span><span class="n">povm</span><span class="p">)</span>
+
+<span class="n">U</span> <span class="o">=</span> <span class="n">qt</span><span class="o">.</span><span class="n">rand_unitary</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+
+<span class="n">rho_evolved</span> <span class="o">=</span> <span class="n">U</span><span class="o">*</span><span class="n">U</span><span class="o">*</span><span class="n">rho</span><span class="o">*</span><span class="n">U</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span><span class="o">*</span><span class="n">U</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span>
+
+<span class="n">evolved_povm</span> <span class="o">=</span> <span class="p">[</span><span class="n">U</span><span class="o">*</span><span class="n">e</span><span class="o">*</span><span class="n">U</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">povm</span><span class="p">]</span>
+<span class="n">evolved_povm_given_povm</span> <span class="o">=</span> <span class="n">conditional_probs</span><span class="p">(</span><span class="n">evolved_povm</span><span class="p">,</span> <span class="n">povm</span><span class="p">)</span>
+
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">dm_probs</span><span class="p">(</span><span class="n">rho_evolved</span><span class="p">,</span> <span class="n">povm</span><span class="p">),</span> <span class="n">evolved_povm_given_povm</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">phi</span> <span class="o">@</span> <span class="n">evolved_povm_given_povm</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">phi</span> <span class="o">@</span> <span class="n">dm_probs</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span> <span class="n">povm</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -783,6 +820,35 @@ integer, we assume it refers to the number of subspaces all of the same dimensio
 </div>
     {% endraw %}
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For example, we can get the probabilities for a partial state by upgrading a POVM of the right dimensionality on that subsystem.</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">entangled</span> <span class="o">=</span> <span class="n">qt</span><span class="o">.</span><span class="n">rand_dm</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">entangled</span><span class="o">.</span><span class="n">dims</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">]]</span>
+<span class="n">povm2</span> <span class="o">=</span> <span class="n">sic_povm</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">dm_probs</span><span class="p">(</span><span class="n">entangled</span><span class="o">.</span><span class="n">ptrace</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">povm2</span><span class="p">),</span> <span class="n">dm_probs</span><span class="p">(</span><span class="n">entangled</span><span class="p">,</span> <span class="n">upgrade_povm</span><span class="p">(</span><span class="n">povm2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)))</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">dm_probs</span><span class="p">(</span><span class="n">entangled</span><span class="o">.</span><span class="n">ptrace</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">povm2</span><span class="p">),</span> <span class="n">dm_probs</span><span class="p">(</span><span class="n">entangled</span><span class="p">,</span> <span class="n">upgrade_povm</span><span class="p">(</span><span class="n">povm2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -844,6 +910,90 @@ of the original system and $n$ is the dimensionality of the auxilliary system an
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="discriminator_povm" class="doc_header"><code>discriminator_povm</code><a href="https://github.com/heyredhat/qbism/tree/master/qbism/povm.py#L129" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>discriminator_povm</code>(<strong><code>a</code></strong>, <strong><code>b</code></strong>)</p>
+</blockquote>
+<p>Returns a non informationally complete POVM which has the special property
+of distinguishing between two arbitrary states $\mid a \rangle$ and $\mid b\rangle$, which are not necessarily orthogonal (which is impossible with a standard PVM).</p>
+<p>It has three elements:</p>
+$$ \hat{F}_{a} = \frac{1}{1+\mid\langle a \mid b \rangle\mid}(\hat{I} - \mid b \rangle \langle b \mid) $$$$ \hat{F}_{b} = \frac{1}{1+\mid\langle a \mid b \rangle\mid}(\hat{I} - \mid a \rangle \langle a \mid) $$$$ \hat{F}_{?} = \hat{I} - \hat{F}_{a} - \hat{F}_{b} $$<p>The first tests for "not B", the second tests for "not A", and the third outcome represents an inconclusive result.</p>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We can see that the "discriminator POVM" is indeed a POVM, and that if the initial state is $\mid a \rangle \langle a \mid$, then the probability of $\hat{F}_{b}$ is $0$; and if the initial state is $\mid b \rangle \langle b \mid$, then the probability of ${F}_{a}$ is $0$.</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">qt</span><span class="o">.</span><span class="n">rand_ket</span><span class="p">(</span><span class="n">d</span><span class="p">),</span> <span class="n">qt</span><span class="o">.</span><span class="n">rand_ket</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<span class="n">dpovm</span> <span class="o">=</span> <span class="n">discriminator_povm</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">dpovm</span><span class="p">),</span> <span class="n">qt</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="n">d</span><span class="p">))</span>
+
+<span class="n">arho</span> <span class="o">=</span> <span class="n">a</span><span class="o">*</span><span class="n">a</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span>
+<span class="n">brho</span> <span class="o">=</span> <span class="n">b</span><span class="o">*</span><span class="n">b</span><span class="o">.</span><span class="n">dag</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dm_probs</span><span class="p">(</span><span class="n">arho</span><span class="p">,</span> <span class="n">dpovm</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dm_probs</span><span class="p">(</span><span class="n">brho</span><span class="p">,</span> <span class="n">dpovm</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dm_probs</span><span class="p">(</span><span class="n">dpovm</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">/</span><span class="n">dpovm</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">tr</span><span class="p">(),</span> <span class="n">dpovm</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[0.11759399 0.         0.88240601]
+[0.         0.11759399 0.88240601]
+[0.03123502 0.03123502 0.93752996]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
 
 </div>
     {% endraw %}
