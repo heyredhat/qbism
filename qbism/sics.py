@@ -40,7 +40,7 @@ def sic_povm(d):
 # Cell
 def sic_gram(d):
     r"""
-    The Gram matrix is the matrix of inner products: $G_{i,j} = \langle v_{i} \mid v_{j} \nangle$. For a SIC, this matrix should consist of 1's along the diagonal, and all other entries $\frac{1}{d}$:
+    The Gram matrix is the matrix of inner products: $G_{i,j} = \langle v_{i} \mid v_{j} \rangle$. For a SIC, this matrix should consist of 1's along the diagonal, and all other entries $\frac{1}{d}$:
 
     $$ \begin{pmatrix} 1 & \frac{1}{d} & \frac{1}{d} & \dots \\
                        \frac{1}{d} & 1 & \frac{1}{d} & \dots \\

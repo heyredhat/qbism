@@ -163,8 +163,8 @@ $$ \hat{\Phi}^{-1}_{i,j} = tr(\hat{E}_{i} \frac{\hat{E}_{j}}{tr \hat{E}_{j}}) $$
 <div class="output_markdown rendered_html output_subarea ">
 <h4 id="dm_probs" class="doc_header"><code>dm_probs</code><a href="https://github.com/heyredhat/qbism/tree/master/qbism/povm.py#L38" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>dm_probs</code>(<strong><code>rho</code></strong>, <strong><code>E</code></strong>)</p>
 </blockquote>
-<p>Given a density matrix $\nho$, expands it in the basis provided by POVM elements $\{\hat{E}\}$, giving a probability vector $\vec{p}$.</p>
-$$p_{i} = tr(\hat{E}_{i}\nho) $$
+<p>Given a density matrix $\rho$, expands it in the basis provided by POVM elements $\{\hat{E}\}$, giving a probability vector $\vec{p}$.</p>
+$$ p_{i} = tr(\hat{E}_{i}\rho) $$
 </div>
 
 </div>
@@ -195,8 +195,8 @@ $$p_{i} = tr(\hat{E}_{i}\nho) $$
 <div class="output_markdown rendered_html output_subarea ">
 <h4 id="probs_dm" class="doc_header"><code>probs_dm</code><a href="https://github.com/heyredhat/qbism/tree/master/qbism/povm.py#L47" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>probs_dm</code>(<strong><code>p</code></strong>, <strong><code>E</code></strong>, <strong><code>phi</code></strong>=<em><code>None</code></em>)</p>
 </blockquote>
-<p>Given a probability vector $\vec{p}$ and a POVM $\{\hat{E}\}$, recovers the density matrix $\nho$. If it's not provided, we first construct $\hat{\Phi}$, the magical quantum coherence matrix, and then form the vector of quasiprobabilities $\vec{q} = \hat{\Phi}\vec{p}$. Then:</p>
-$$ \nho = \sum_{i} q_{i}\frac{\hat{E_{i}}}{tr E_{i}}$$
+<p>Given a probability vector $\vec{p}$ and a POVM $\{\hat{E}\}$, recovers the density matrix $\rho$. If it's not provided, we first construct $\hat{\Phi}$, the magical quantum coherence matrix, and then form the vector of quasiprobabilities $\vec{q} = \hat{\Phi}\vec{p}$. Then:</p>
+$$ \rho = \sum_{i} q_{i}\frac{\hat{E_{i}}}{tr E_{i}}$$
 </div>
 
 </div>
@@ -337,8 +337,8 @@ $$\hat{R}_{j,i} = tr(\hat{A}_{j}\frac{\hat{B}_{i}}{tr \hat{B}_{i}})$$
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>We can use the conditional probability matrix to calculate the probabilities of a PVM (Von Neumann) measurement after a SIC-POVM measurement whose outcome we're ignorant of.</p>
 <p>After the initial POVM measurement:</p>
-$$ \nho^{\prime} = \sum_{i} p_{i}\frac{\hat{E}_{i}}{tr \hat{E}_{i}} $$<p></p>
-<p>Where $p_{i}$ are the probabilities $\vec{p}$ with respect to the POVM, and $\frac{\hat{E}_{i}}{tr \hat{E}_{i}}$ are the outcome states. We can then get the probabilities for the later PVM via $tr (\Pi_{j}\nho^{\prime})$. This should be the same as $\hat{R}\vec{p}$.</p>
+$$ \rho^{\prime} = \sum_{i} p_{i}\frac{\hat{E}_{i}}{tr \hat{E}_{i}} $$<p></p>
+<p>Where $p_{i}$ are the probabilities $\vec{p}$ with respect to the POVM, and $\frac{\hat{E}_{i}}{tr \hat{E}_{i}}$ are the outcome states. We can then get the probabilities for the later PVM via $tr (\Pi_{j}\rho^{\prime})$. This should be the same as $\hat{R}\vec{p}$.</p>
 
 </div>
 </div>
@@ -481,7 +481,7 @@ $$ \nho^{\prime} = \sum_{i} p_{i}\frac{\hat{E}_{i}}{tr \hat{E}_{i}} $$<p></p>
 <p>{% raw %}
 $$ \vec{q} = \hat{R} \hat{\Phi} \vec{p} $$
 {% endraw %}</p>
-<p>This should be the same as $tr(\hat{F}_{i} \nho)$, where $\{F\}$ is the second POVM or PVM.</p>
+<p>This should be the same as $tr(\hat{F}_{i} \rho)$, where $\{F\}$ is the second POVM or PVM.</p>
 
 </div>
 </div>
@@ -556,7 +556,7 @@ $$ \vec{q} = \hat{R} \hat{\Phi} \vec{p} $$
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>This also give us a way of representing quantum time evolution.</p>
-<p>The usual way of obtaining the evolved probabilities is simply by evolving $\nho$ via some unitary $\hat{U}\nho\hat{U}^{\dagger}$ and the finding the probabilities with respect to the original POVM. Alternatively, we could leave $\nho$ alone, and get the same answer by finding the probabilities with respect to the <em>time reverse evolved</em> POVM, in other words, one whose elements have been evolved $\hat{U}^{\dagger}\hat{E}\hat{U}$.</p>
+<p>The usual way of obtaining the evolved probabilities is simply by evolving $\rho$ via some unitary $\hat{U}\rho\hat{U}^{\dagger}$ and the finding the probabilities with respect to the original POVM. Alternatively, we could leave $\rho$ alone, and get the same answer by finding the probabilities with respect to the <em>time reverse evolved</em> POVM, in other words, one whose elements have been evolved $\hat{U}^{\dagger}\hat{E}\hat{U}$.</p>
 <p>In terms of the POVM formalism, we form the conditional probability matrix $R_{j,i}$ for outcome $j$ of the evolved POVM given outcome $i$ of the original POVM, and take its transpose. Then the evolved probabilities are: $\hat{R}^{T} \hat{\Phi} \vec{p}$. The same effect could be obtained by working with the conditional probabilities for the reversed evolved POVM given the original POVM, or the conditional probabilities for the original POVM given the evolved POVM.</p>
 
 </div>
@@ -708,8 +708,7 @@ $$ \hat{R}^{T} \hat{\Phi} \hat{R} \hat{\Phi} = \hat{I}_{d^2}$$
 </blockquote>
 <p>The quantum inner product expressed in terms of probability vectors. If $\hat{\Phi}$ is not provided,
 we use the SIC-POVM $\hat{\Phi}$ of the appropriate dimensionality.</p>
-$$ tr(\sigma\nho) = d \vec{s} \hat{\Phi} \vec{r}$$<p>Where $\vec{r}$ is the probability vector for $\nho$ and $\vec{s}$ is the probability vector for $\sigma$ with
-respect to the same POVM.</p>
+$$ tr(\sigma\rho) = d \vec{s} \hat{\Phi} \vec{r}$$<p>Where $\vec{r}$ is the probability vector for $\rho$ and $\vec{s}$ is the probability vector for $\sigma$ with respect to the same POVM.</p>
 
 </div>
 
@@ -766,7 +765,7 @@ respect to the same POVM.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="tensor_povm" class="doc_header"><code>tensor_povm</code><a href="https://github.com/heyredhat/qbism/tree/master/qbism/povm.py#L82" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>tensor_povm</code>(<strong>*<code>povms</code></strong>)</p>
+<h4 id="tensor_povm" class="doc_header"><code>tensor_povm</code><a href="https://github.com/heyredhat/qbism/tree/master/qbism/povm.py#L81" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>tensor_povm</code>(<strong>*<code>povms</code></strong>)</p>
 </blockquote>
 <p>Forms the tensor product of a list of POVM's, which is itself a POVM.</p>
 
@@ -798,7 +797,7 @@ respect to the same POVM.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="upgrade_povm" class="doc_header"><code>upgrade_povm</code><a href="https://github.com/heyredhat/qbism/tree/master/qbism/povm.py#L91" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>upgrade_povm</code>(<strong><code>E</code></strong>, <strong><code>i</code></strong>, <strong><code>dims</code></strong>)</p>
+<h4 id="upgrade_povm" class="doc_header"><code>upgrade_povm</code><a href="https://github.com/heyredhat/qbism/tree/master/qbism/povm.py#L90" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>upgrade_povm</code>(<strong><code>E</code></strong>, <strong><code>i</code></strong>, <strong><code>dims</code></strong>)</p>
 </blockquote>
 <p>Upgrades a POVM to act on the $i^{th}$ subspace of a tensor product space whose subspaces are given by a list <code>dims</code>. If <code>dims</code> is an
 integer, we assume it refers to the number of subspaces all of the same dimensionality as the POVM.</p>
@@ -860,7 +859,7 @@ integer, we assume it refers to the number of subspaces all of the same dimensio
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="apply_dims" class="doc_header"><code>apply_dims</code><a href="https://github.com/heyredhat/qbism/tree/master/qbism/povm.py#L101" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>apply_dims</code>(<strong><code>E</code></strong>, <strong><code>dims</code></strong>)</p>
+<h4 id="apply_dims" class="doc_header"><code>apply_dims</code><a href="https://github.com/heyredhat/qbism/tree/master/qbism/povm.py#L100" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>apply_dims</code>(<strong><code>E</code></strong>, <strong><code>dims</code></strong>)</p>
 </blockquote>
 <p>Helper function which sets the tensor dimensions of each POVM element to <code>dims</code>.</p>
 
@@ -892,7 +891,7 @@ integer, we assume it refers to the number of subspaces all of the same dimensio
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="implement_povm" class="doc_header"><code>implement_povm</code><a href="https://github.com/heyredhat/qbism/tree/master/qbism/povm.py#L110" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>implement_povm</code>(<strong><code>E</code></strong>)</p>
+<h4 id="implement_povm" class="doc_header"><code>implement_povm</code><a href="https://github.com/heyredhat/qbism/tree/master/qbism/povm.py#L109" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>implement_povm</code>(<strong><code>E</code></strong>)</p>
 </blockquote>
 <p>Returns a unitary operator $\hat{U}$ implementing a given POVM on $H_{d} \otimes H_{n}$, where $d$ is the dimensionality
 of the original system and $n$ is the dimensionality of the auxilliary system and which is the same as the number of POVM elements.</p>
@@ -925,12 +924,12 @@ of the original system and $n$ is the dimensionality of the auxilliary system an
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="discriminator_povm" class="doc_header"><code>discriminator_povm</code><a href="https://github.com/heyredhat/qbism/tree/master/qbism/povm.py#L129" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>discriminator_povm</code>(<strong><code>a</code></strong>, <strong><code>b</code></strong>)</p>
+<h4 id="discriminator_povm" class="doc_header"><code>discriminator_povm</code><a href="https://github.com/heyredhat/qbism/tree/master/qbism/povm.py#L128" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>discriminator_povm</code>(<strong><code>a</code></strong>, <strong><code>b</code></strong>)</p>
 </blockquote>
 <p>Returns a non informationally complete POVM which has the special property
 of distinguishing between two arbitrary states $\mid a \nangle$ and $\mid b\nangle$, which are not necessarily orthogonal (which is impossible with a standard PVM).</p>
 <p>It has three elements:</p>
-$$ \hat{F}_{a} = \frac{1}{1+\mid\langle a \mid b \nangle\mid}(\hat{I} - \mid b \nangle \langle b \mid) $$$$ \hat{F}_{b} = \frac{1}{1+\mid\langle a \mid b \nangle\mid}(\hat{I} - \mid a \nangle \langle a \mid) $$$$ \hat{F}_{?} = \hat{I} - \hat{F}_{a} - \hat{F}_{b} $$<p>The first tests for "not B", the second tests for "not A", and the third outcome represents an inconclusive result.</p>
+$$ \hat{F}_{a} = \frac{1}{1+\mid\langle a \mid b \rangle\mid}(\hat{I} - \mid b \rangle \langle b \mid) $$$$ \hat{F}_{b} = \frac{1}{1+\mid\langle a \mid b \rangle\mid}(\hat{I} - \mid a \rangle \langle a \mid) $$$$ \hat{F}_{?} = \hat{I} - \hat{F}_{a} - \hat{F}_{b} $$<p>The first tests for "not B", the second tests for "not A", and the third outcome represents an inconclusive result.</p>
 
 </div>
 
@@ -951,7 +950,7 @@ $$ \hat{F}_{a} = \frac{1}{1+\mid\langle a \mid b \nangle\mid}(\hat{I} - \mid b \
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We can see that the "discriminator POVM" is indeed a POVM, and that if the initial state is $\mid a \nangle \langle a \mid$, then the probability of $\hat{F}_{b}$ is $0$; and if the initial state is $\mid b \nangle \langle b \mid$, then the probability of ${F}_{a}$ is $0$.</p>
+<p>We can see that the "discriminator POVM" is indeed a POVM, and that if the initial state is $\mid a \rangle \langle a \mid$, then the probability of $\hat{F}_{b}$ is $0$; and if the initial state is $\mid b \rangle \langle b \mid$, then the probability of ${F}_{a}$ is $0$.</p>
 
 </div>
 </div>

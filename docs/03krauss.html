@@ -50,8 +50,8 @@ nb_path: "03krauss.ipynb"
 <h4 id="apply_krauss" class="doc_header"><code>apply_krauss</code><a href="https://github.com/heyredhat/qbism/tree/master/qbism/krauss.py#L10" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>apply_krauss</code>(<strong><code>dm</code></strong>, <strong><code>krauss</code></strong>)</p>
 </blockquote>
 <p>Applies a Krauss map to a density matrix $\nho$. The Krauss map consists in some number of operators
-satisfying $\sum_{i} \hat{K}_{i}^{\dagger}\hat{K}_{i} = \hat{I}$. $\nho$ is transformed via:</p>
-$$\nho \nightarrow \sum_{i} \hat{K}_{i}\nho\hat{K}_{i}^{\dagger} $$
+satisfying $\sum_{i} \hat{K}_{i}^{\dagger}\hat{K}_{i} = \hat{I}$. $\rho$ is transformed via:</p>
+$$\rho \rightarrow \sum_{i} \hat{K}_{i}\rho\hat{K}_{i}^{\dagger} $$
 </div>
 
 </div>
@@ -294,6 +294,43 @@ $$K_{j, i} = tr( \mathbb{K}(\frac{\hat{A}_{i}}{tr \hat{A}_{i}})\hat{B}_{j} ) $$<
 <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">dm_probs</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">ptrace</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">povm2</span><span class="p">),</span> <span class="n">ptr0</span> <span class="o">@</span> <span class="n">phi</span> <span class="o">@</span> <span class="n">p</span><span class="p">)</span>
 <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">dm_probs</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">ptrace</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">povm3</span><span class="p">),</span> <span class="n">ptr1</span> <span class="o">@</span> <span class="n">phi</span> <span class="o">@</span> <span class="n">p</span><span class="p">)</span>
 <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">dm_probs</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">ptrace</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]),</span> <span class="n">povm6</span><span class="p">),</span> <span class="n">ptr01</span> <span class="o">@</span> <span class="n">phi</span> <span class="o">@</span> <span class="n">p</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Compositionality:</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">U</span> <span class="o">=</span> <span class="n">qt</span><span class="o">.</span><span class="n">rand_unitary</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<span class="n">U2</span> <span class="o">=</span> <span class="n">qt</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">U</span><span class="p">,</span> <span class="n">U</span><span class="p">)</span>
+
+<span class="n">povm</span> <span class="o">=</span> <span class="n">sic_povm</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<span class="n">tpovm</span> <span class="o">=</span> <span class="n">tensor_povm</span><span class="p">(</span><span class="n">povm</span><span class="p">,</span> <span class="n">povm</span><span class="p">)</span>
+<span class="n">tphi</span> <span class="o">=</span> <span class="n">povm_phi</span><span class="p">(</span><span class="n">tpovm</span><span class="p">)</span>
+
+<span class="n">rho</span> <span class="o">=</span> <span class="n">qt</span><span class="o">.</span><span class="n">rand_dm</span><span class="p">(</span><span class="n">d</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">rho</span><span class="o">.</span><span class="n">dims</span> <span class="o">=</span> <span class="p">[[</span><span class="n">d</span><span class="p">,</span><span class="n">d</span><span class="p">],[</span><span class="n">d</span><span class="p">,</span><span class="n">d</span><span class="p">]]</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">dm_probs</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span> <span class="n">tpovm</span><span class="p">)</span>
+
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">dm_probs</span><span class="p">(</span><span class="n">U2</span><span class="o">*</span><span class="n">rho</span><span class="o">*</span><span class="n">U2</span><span class="o">.</span><span class="n">dag</span><span class="p">(),</span> <span class="n">tpovm</span><span class="p">),</span> <span class="n">povm_map</span><span class="p">([</span><span class="n">U2</span><span class="p">],</span> <span class="n">tpovm</span><span class="p">,</span> <span class="n">tpovm</span><span class="p">)</span> <span class="o">@</span> <span class="n">tphi</span> <span class="o">@</span> <span class="n">p</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">dm_probs</span><span class="p">(</span><span class="n">U2</span><span class="o">*</span><span class="n">rho</span><span class="o">*</span><span class="n">U2</span><span class="o">.</span><span class="n">dag</span><span class="p">(),</span> <span class="n">tpovm</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="n">povm_map</span><span class="p">([</span><span class="n">U</span><span class="p">],</span> <span class="n">povm</span><span class="p">,</span> <span class="n">povm</span><span class="p">),</span> <span class="n">povm_map</span><span class="p">([</span><span class="n">U</span><span class="p">],</span> <span class="n">povm</span><span class="p">,</span> <span class="n">povm</span><span class="p">))</span> <span class="o">@</span> <span class="n">tphi</span> <span class="o">@</span> <span class="n">p</span><span class="p">)</span>
 </pre></div>
 
     </div>
