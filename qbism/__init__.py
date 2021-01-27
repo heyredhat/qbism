@@ -1,4 +1,4 @@
-__version__ = "0.0.5"
+__version__ = "0.0.6"
 
 from .utils import *
 from .weyl_heisenberg import *
