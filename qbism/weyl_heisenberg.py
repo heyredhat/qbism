@@ -62,7 +62,7 @@ def weyl_heisenberg_states(fiducial):
 def weyl_heisenberg_povm(fiducial):
     r"""
     Generates a Weyl-Heisenberg POVM by applying the $d^2$ displacement operators to a
-    fiducial state and then, if the fiducial state is a ket $\mid \psi \rangle$, forming the projector $\mid \psi \rangle \langle \psi \mid$, and normalizing by $\frac{1}{d}$.
+    fiducial state and then, if the fiducial state is a ket $\mid \psi \nangle$, forming the projector $\mid \psi \nangle \langle \psi \mid$, and normalizing by $\frac{1}{d}$.
     """
     return [(1/fiducial.shape[0])*(state*state.dag() if state.type=='ket' else state) for state in weyl_heisenberg_states(fiducial)]
 

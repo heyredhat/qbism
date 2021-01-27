@@ -37,18 +37,18 @@ def povm_phi(E):
 # Cell
 def dm_probs(rho, E):
     r"""
-    Given a density matrix $\rho$, expands it in the basis provided by POVM elements $\{\hat{E}\}$, giving a probability vector $\vec{p}$.
+    Given a density matrix $\nho$, expands it in the basis provided by POVM elements $\{\hat{E}\}$, giving a probability vector $\vec{p}$.
 
-    $$p_{i} = tr(\hat{E}_{i}\rho) $$
+    $$p_{i} = tr(\hat{E}_{i}\nho) $$
     """
     return np.array([(e*rho).tr() for e in E]).real
 
 # Cell
 def probs_dm(p, E, phi=None):
     r"""
-    Given a probability vector $\vec{p}$ and a POVM $\{\hat{E}\}$, recovers the density matrix $\rho$. If it's not provided, we first construct $\hat{\Phi}$, the magical quantum coherence matrix, and then form the vector of quasiprobabilities $\vec{q} = \hat{\Phi}\vec{p}$. Then:
+    Given a probability vector $\vec{p}$ and a POVM $\{\hat{E}\}$, recovers the density matrix $\nho$. If it's not provided, we first construct $\hat{\Phi}$, the magical quantum coherence matrix, and then form the vector of quasiprobabilities $\vec{q} = \hat{\Phi}\vec{p}$. Then:
 
-    $$ \rho = \sum_{i} q_{i}\frac{\hat{E_{i}}}{tr E_{i}}$$
+    $$ \nho = \sum_{i} q_{i}\frac{\hat{E_{i}}}{tr E_{i}}$$
     """
     phi = phi if type(phi) != type(None) else povm_phi(E)
     return sum([c*E[i]/E[i].tr() for i, c in enumerate(phi @ p)])
@@ -68,9 +68,9 @@ def quantum_inner_product(r, s, phi=None):
     The quantum inner product expressed in terms of probability vectors. If $\hat{\Phi}$ is not provided,
     we use the SIC-POVM $\hat{\Phi}$ of the appropriate dimensionality.
 
-    $$ tr(\sigma\rho) = d \vec{s} \hat{\Phi} \vec{r}$$
+    $$ tr(\sigma\nho) = d \vec{s} \hat{\Phi} \vec{r}$$
 
-    Where $\vec{r}$ is the probability vector for $\rho$ and $\vec{s}$ is the probability vector for $\sigma$ with
+    Where $\vec{r}$ is the probability vector for $\nho$ and $\vec{s}$ is the probability vector for $\sigma$ with
     respect to the same POVM.
     """
     d = int(np.sqrt(len(p)))
@@ -129,12 +129,12 @@ def implement_povm(E):
 def discriminator_povm(a, b):
     r"""
     Returns a non informationally complete POVM which has the special property
-    of distinguishing between two arbitrary states $\mid a \rangle$ and $\mid b\rangle$, which are not necessarily orthogonal (which is impossible with a standard PVM).
+    of distinguishing between two arbitrary states $\mid a \nangle$ and $\mid b\nangle$, which are not necessarily orthogonal (which is impossible with a standard PVM).
 
     It has three elements:
 
-    $$ \hat{F}_{a} = \frac{1}{1+\mid\langle a \mid b \rangle\mid}(\hat{I} - \mid b \rangle \langle b \mid) $$
-    $$ \hat{F}_{b} = \frac{1}{1+\mid\langle a \mid b \rangle\mid}(\hat{I} - \mid a \rangle \langle a \mid) $$
+    $$ \hat{F}_{a} = \frac{1}{1+\mid\langle a \mid b \nangle\mid}(\hat{I} - \mid b \nangle \langle b \mid) $$
+    $$ \hat{F}_{b} = \frac{1}{1+\mid\langle a \mid b \nangle\mid}(\hat{I} - \mid a \nangle \langle a \mid) $$
     $$ \hat{F}_{?} = \hat{I} - \hat{F}_{a} - \hat{F}_{b} $$
 
     The first tests for "not B", the second tests for "not A", and the third outcome represents an inconclusive result.

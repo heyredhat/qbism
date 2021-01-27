@@ -9,10 +9,10 @@ import qutip as qt
 # Cell
 def apply_krauss(dm, krauss):
 	r"""
-	Applies a Krauss map to a density matrix $\rho$. The Krauss map consists in some number of operators
-	satisfying $\sum_{i} \hat{K}_{i}^{\dagger}\hat{K}_{i} = \hat{I}$. $\rho$ is transformed via:
+	Applies a Krauss map to a density matrix $\nho$. The Krauss map consists in some number of operators
+	satisfying $\sum_{i} \hat{K}_{i}^{\dagger}\hat{K}_{i} = \hat{I}$. $\nho$ is transformed via:
 
-	$$\rho \rightarrow \sum_{i} \hat{K}_{i}\rho\hat{K}_{i}^{\dagger} $$
+	$$\nho \nightarrow \sum_{i} \hat{K}_{i}\nho\hat{K}_{i}^{\dagger} $$
 	"""
 	return sum([krauss[j]*dm*krauss[j].dag() for j in range(len(krauss))])
 
