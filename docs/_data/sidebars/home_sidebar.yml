@@ -10,17 +10,20 @@ entries:
       title: Overview
       url: /
     - output: web,pdf
+      title: Tutorial
+      url: 00tutorial.html
+    - output: web,pdf
       title: The Weyl-Heisenberg Group
       url: heisenberg.html
     - output: web,pdf
       title: SIC-POVM's
-      url: 01sics.html
+      url: 02sics.html
     - output: web,pdf
       title: POVM's
-      url: 02povm.html
+      url: 03povm.html
     - output: web,pdf
       title: Krauss Operators
-      url: 03krauss.html
+      url: 04krauss.html
     output: web
     title: qbism
   output: web
