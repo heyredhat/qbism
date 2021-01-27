@@ -2,7 +2,7 @@ topnav:
 - title: Topnav
   items:
     - title: github
-      external_url: https://github.com/heyredhat/qbism/tree/{branch}/
+      external_url: https://github.com/heyredhat/qbism
 
 #Topnav dropdowns
 topnav_dropdowns:

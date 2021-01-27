@@ -2,7 +2,7 @@
   "qbism": {
     "Overview": "/",
     "Tutorial": "00tutorial.html",
-    "The Weyl-Heisenberg Group": "heisenberg.html",
+    "The Weyl-Heisenberg Group": "01weylheisenberg.html",
     "SIC-POVM's": "02sics.html",
     "POVM's": "03povm.html",
     "Krauss Operators": "04krauss.html"

@@ -927,7 +927,7 @@ of the original system and $n$ is the dimensionality of the auxilliary system an
 <h4 id="discriminator_povm" class="doc_header"><code>discriminator_povm</code><a href="https://github.com/heyredhat/qbism/tree/master/qbism/povm.py#L128" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>discriminator_povm</code>(<strong><code>a</code></strong>, <strong><code>b</code></strong>)</p>
 </blockquote>
 <p>Returns a non informationally complete POVM which has the special property
-of distinguishing between two arbitrary states $\mid a \nangle$ and $\mid b\nangle$, which are not necessarily orthogonal (which is impossible with a standard PVM).</p>
+of distinguishing between two arbitrary states $\mid a \rangle$ and $\mid b\rangle$, which are not necessarily orthogonal (which is impossible with a standard PVM).</p>
 <p>It has three elements:</p>
 $$ \hat{F}_{a} = \frac{1}{1+\mid\langle a \mid b \rangle\mid}(\hat{I} - \mid b \rangle \langle b \mid) $$$$ \hat{F}_{b} = \frac{1}{1+\mid\langle a \mid b \rangle\mid}(\hat{I} - \mid a \rangle \langle a \mid) $$$$ \hat{F}_{?} = \hat{I} - \hat{F}_{a} - \hat{F}_{b} $$<p>The first tests for "not B", the second tests for "not A", and the third outcome represents an inconclusive result.</p>
 

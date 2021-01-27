@@ -16,7 +16,7 @@ Note that `qbism` relies on `qutip`!
 
 Let's start off with a random density matrix:
 
-```python
+```
 from qbism import *
 import qutip as qt
 import numpy as np
@@ -27,7 +27,7 @@ rho = qt.rand_dm(d)
 
 We construct a random Weyl-Heisenberg IC-POVM, and get the magical quantum coherence matrix. We find the probabilities with respect to this POVM.
 
-```python
+```
 povm = weyl_heisenberg_povm(qt.rand_ket(d))
 phi = povm_phi(povm)
 p = dm_probs(rho, povm)
@@ -39,7 +39,7 @@ print("probs: %s" % p)
 
 We can compare the classical probabilities (for a Von Neumann measurement after a POVM measurement whose outcome we are ignorant of) to the the quantum probabilities (in the case where we go directly to the Von Neumann measurement):
 
-```python
+```
 H = qt.rand_herm(d)
 vn = [v*v.dag() for v in H.eigenstates()[1]]
 
@@ -60,7 +60,7 @@ assert np.allclose(quantum_probs, [(v*rho).tr() for v in vn])
 
 Now let's get a SIC-POVM and explore time evolution:
 
-```python
+```
 sic = sic_povm(d)
 sic_phi = povm_phi(sic)
 sic_p = dm_probs(rho, sic)
@@ -79,14 +79,14 @@ assert np.allclose(dm_probs(U*rho*U.dag(), sic), time_evolved_sic_p)
 
 We could also use:
 
-```python
+```
 time_evolved_sic_p2 = povm_map([U], sic) @ sic_phi @ sic_p
 assert np.allclose(time_evolved_sic_p, time_evolved_sic_p2)
 ```
 
 Finally, let's check out partial traces:
 
-```python
+```
 entangled = qt.rand_dm(4)
 entangled.dims = [[2,2],[2,2]]
 

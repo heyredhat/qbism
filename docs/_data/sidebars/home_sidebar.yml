@@ -14,7 +14,7 @@ entries:
       url: 00tutorial.html
     - output: web,pdf
       title: The Weyl-Heisenberg Group
-      url: heisenberg.html
+      url: 01weylheisenberg.html
     - output: web,pdf
       title: SIC-POVM's
       url: 02sics.html

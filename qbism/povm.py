@@ -128,7 +128,7 @@ def implement_povm(E):
 def discriminator_povm(a, b):
     r"""
     Returns a non informationally complete POVM which has the special property
-    of distinguishing between two arbitrary states $\mid a \nangle$ and $\mid b\nangle$, which are not necessarily orthogonal (which is impossible with a standard PVM).
+    of distinguishing between two arbitrary states $\mid a \rangle$ and $\mid b\rangle$, which are not necessarily orthogonal (which is impossible with a standard PVM).
 
     It has three elements:
 

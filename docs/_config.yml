@@ -2,7 +2,7 @@ repository: heyredhat/qbism
 output: web
 topnav_title: qbism
 site_title: qbism
-company_name: (C) 2021 Matthew Weiss
+company_name: Matthew Weiss
 description: quantum bettabilitarianism
 # Set to false to disable KaTeX math
 use_math: true
