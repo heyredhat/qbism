@@ -47,7 +47,7 @@ nb_path: "03povm.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="povm_gram" class="doc_header"><code>povm_gram</code><a href="https://github.com/heyredhat/qbism/tree/master/qbism/povm.py#L17" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>povm_gram</code>(<strong><code>E</code></strong>)</p>
+<h4 id="povm_gram" class="doc_header"><code>povm_gram</code><a href="https://github.com/heyredhat/qbism/tree/master/qbism/povm.py#L16" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>povm_gram</code>(<strong><code>E</code></strong>)</p>
 </blockquote>
 <p>The Gram matrix is the matrix of inner products. Given POVM elements $\{\hat{E}\}$, we form the matrix:</p>
 $$ G_{i,j} = tr(\frac{\hat{E}_{i}}{tr \hat{E}_{i}} \frac{\hat{E}_{j}}{tr \hat{E}_{j}})$$
@@ -128,7 +128,7 @@ $$ G_{i,j} = tr(\frac{\hat{E}_{i}}{tr \hat{E}_{i}} \frac{\hat{E}_{j}}{tr \hat{E}
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="povm_phi" class="doc_header"><code>povm_phi</code><a href="https://github.com/heyredhat/qbism/tree/master/qbism/povm.py#L26" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>povm_phi</code>(<strong><code>E</code></strong>)</p>
+<h4 id="povm_phi" class="doc_header"><code>povm_phi</code><a href="https://github.com/heyredhat/qbism/tree/master/qbism/povm.py#L25" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>povm_phi</code>(<strong><code>E</code></strong>)</p>
 </blockquote>
 <p>Given POVM elements $\{\hat{E}\}$, we first form the matrix:</p>
 $$ \hat{\Phi}^{-1}_{i,j} = tr(\hat{E}_{i} \frac{\hat{E}_{j}}{tr \hat{E}_{j}}) $$<p>And then take its inverse to construct $\hat{\Phi}$, the magical quantum transition matrix.</p>
@@ -161,7 +161,7 @@ $$ \hat{\Phi}^{-1}_{i,j} = tr(\hat{E}_{i} \frac{\hat{E}_{j}}{tr \hat{E}_{j}}) $$
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="dm_probs" class="doc_header"><code>dm_probs</code><a href="https://github.com/heyredhat/qbism/tree/master/qbism/povm.py#L38" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>dm_probs</code>(<strong><code>rho</code></strong>, <strong><code>E</code></strong>)</p>
+<h4 id="dm_probs" class="doc_header"><code>dm_probs</code><a href="https://github.com/heyredhat/qbism/tree/master/qbism/povm.py#L37" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>dm_probs</code>(<strong><code>rho</code></strong>, <strong><code>E</code></strong>)</p>
 </blockquote>
 <p>Given a density matrix $\rho$, expands it in the basis provided by POVM elements $\{\hat{E}\}$, giving a probability vector $\vec{p}$.</p>
 $$ p_{i} = tr(\hat{E}_{i}\rho) $$
@@ -193,7 +193,7 @@ $$ p_{i} = tr(\hat{E}_{i}\rho) $$
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="probs_dm" class="doc_header"><code>probs_dm</code><a href="https://github.com/heyredhat/qbism/tree/master/qbism/povm.py#L47" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>probs_dm</code>(<strong><code>p</code></strong>, <strong><code>E</code></strong>, <strong><code>phi</code></strong>=<em><code>None</code></em>)</p>
+<h4 id="probs_dm" class="doc_header"><code>probs_dm</code><a href="https://github.com/heyredhat/qbism/tree/master/qbism/povm.py#L46" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>probs_dm</code>(<strong><code>p</code></strong>, <strong><code>E</code></strong>, <strong><code>phi</code></strong>=<em><code>None</code></em>)</p>
 </blockquote>
 <p>Given a probability vector $\vec{p}$ and a POVM $\{\hat{E}\}$, recovers the density matrix $\rho$. If it's not provided, we first construct $\hat{\Phi}$, the magical quantum coherence matrix, and then form the vector of quasiprobabilities $\vec{q} = \hat{\Phi}\vec{p}$. Then:</p>
 $$ \rho = \sum_{i} q_{i}\frac{\hat{E_{i}}}{tr E_{i}}$$
@@ -312,7 +312,7 @@ $$ \rho = \sum_{i} q_{i}\frac{\hat{E_{i}}}{tr E_{i}}$$
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="conditional_probs" class="doc_header"><code>conditional_probs</code><a href="https://github.com/heyredhat/qbism/tree/master/qbism/povm.py#L57" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>conditional_probs</code>(<strong><code>A</code></strong>, <strong><code>B</code></strong>)</p>
+<h4 id="conditional_probs" class="doc_header"><code>conditional_probs</code><a href="https://github.com/heyredhat/qbism/tree/master/qbism/povm.py#L56" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>conditional_probs</code>(<strong><code>A</code></strong>, <strong><code>B</code></strong>)</p>
 </blockquote>
 <p>Given two POVM's $\{\hat{A}\}$ and $\{\hat{B}\}$ (or PVM's), constructs the matrix of conditional probabilities $r(j|i)$ for outcome $A_{j}$ given outcome $B_{i}$:</p>
 $$\hat{R}_{j,i} = tr(\hat{A}_{j}\frac{\hat{B}_{i}}{tr \hat{B}_{i}})$$
@@ -704,7 +704,7 @@ $$ \hat{R}^{T} \hat{\Phi} \hat{R} \hat{\Phi} = \hat{I}_{d^2}$$
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="quantum_inner_product" class="doc_header"><code>quantum_inner_product</code><a href="https://github.com/heyredhat/qbism/tree/master/qbism/povm.py#L66" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>quantum_inner_product</code>(<strong><code>r</code></strong>, <strong><code>s</code></strong>, <strong><code>phi</code></strong>=<em><code>None</code></em>)</p>
+<h4 id="quantum_inner_product" class="doc_header"><code>quantum_inner_product</code><a href="https://github.com/heyredhat/qbism/tree/master/qbism/povm.py#L65" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>quantum_inner_product</code>(<strong><code>r</code></strong>, <strong><code>s</code></strong>, <strong><code>phi</code></strong>=<em><code>None</code></em>)</p>
 </blockquote>
 <p>The quantum inner product expressed in terms of probability vectors. If $\hat{\Phi}$ is not provided,
 we use the SIC-POVM $\hat{\Phi}$ of the appropriate dimensionality.</p>
@@ -765,7 +765,7 @@ $$ tr(\sigma\rho) = d \vec{s} \hat{\Phi} \vec{r}$$<p>Where $\vec{r}$ is the prob
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="tensor_povm" class="doc_header"><code>tensor_povm</code><a href="https://github.com/heyredhat/qbism/tree/master/qbism/povm.py#L81" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>tensor_povm</code>(<strong>*<code>povms</code></strong>)</p>
+<h4 id="tensor_povm" class="doc_header"><code>tensor_povm</code><a href="https://github.com/heyredhat/qbism/tree/master/qbism/povm.py#L80" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>tensor_povm</code>(<strong>*<code>povms</code></strong>)</p>
 </blockquote>
 <p>Forms the tensor product of a list of POVM's, which is itself a POVM.</p>
 
@@ -797,7 +797,7 @@ $$ tr(\sigma\rho) = d \vec{s} \hat{\Phi} \vec{r}$$<p>Where $\vec{r}$ is the prob
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="upgrade_povm" class="doc_header"><code>upgrade_povm</code><a href="https://github.com/heyredhat/qbism/tree/master/qbism/povm.py#L90" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>upgrade_povm</code>(<strong><code>E</code></strong>, <strong><code>i</code></strong>, <strong><code>dims</code></strong>)</p>
+<h4 id="upgrade_povm" class="doc_header"><code>upgrade_povm</code><a href="https://github.com/heyredhat/qbism/tree/master/qbism/povm.py#L89" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>upgrade_povm</code>(<strong><code>E</code></strong>, <strong><code>i</code></strong>, <strong><code>dims</code></strong>)</p>
 </blockquote>
 <p>Upgrades a POVM to act on the $i^{th}$ subspace of a tensor product space whose subspaces are given by a list <code>dims</code>. If <code>dims</code> is an
 integer, we assume it refers to the number of subspaces all of the same dimensionality as the POVM.</p>
@@ -859,7 +859,7 @@ integer, we assume it refers to the number of subspaces all of the same dimensio
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="apply_dims" class="doc_header"><code>apply_dims</code><a href="https://github.com/heyredhat/qbism/tree/master/qbism/povm.py#L100" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>apply_dims</code>(<strong><code>E</code></strong>, <strong><code>dims</code></strong>)</p>
+<h4 id="apply_dims" class="doc_header"><code>apply_dims</code><a href="https://github.com/heyredhat/qbism/tree/master/qbism/povm.py#L99" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>apply_dims</code>(<strong><code>E</code></strong>, <strong><code>dims</code></strong>)</p>
 </blockquote>
 <p>Helper function which sets the tensor dimensions of each POVM element to <code>dims</code>.</p>
 
@@ -891,7 +891,7 @@ integer, we assume it refers to the number of subspaces all of the same dimensio
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="implement_povm" class="doc_header"><code>implement_povm</code><a href="https://github.com/heyredhat/qbism/tree/master/qbism/povm.py#L109" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>implement_povm</code>(<strong><code>E</code></strong>)</p>
+<h4 id="implement_povm" class="doc_header"><code>implement_povm</code><a href="https://github.com/heyredhat/qbism/tree/master/qbism/povm.py#L108" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>implement_povm</code>(<strong><code>E</code></strong>)</p>
 </blockquote>
 <p>Returns a unitary operator $\hat{U}$ implementing a given POVM on $H_{d} \otimes H_{n}$, where $d$ is the dimensionality
 of the original system and $n$ is the dimensionality of the auxilliary system and which is the same as the number of POVM elements.</p>
@@ -924,7 +924,7 @@ of the original system and $n$ is the dimensionality of the auxilliary system an
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="discriminator_povm" class="doc_header"><code>discriminator_povm</code><a href="https://github.com/heyredhat/qbism/tree/master/qbism/povm.py#L128" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>discriminator_povm</code>(<strong><code>a</code></strong>, <strong><code>b</code></strong>)</p>
+<h4 id="discriminator_povm" class="doc_header"><code>discriminator_povm</code><a href="https://github.com/heyredhat/qbism/tree/master/qbism/povm.py#L127" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>discriminator_povm</code>(<strong><code>a</code></strong>, <strong><code>b</code></strong>)</p>
 </blockquote>
 <p>Returns a non informationally complete POVM which has the special property
 of distinguishing between two arbitrary states $\mid a \rangle$ and $\mid b\rangle$, which are not necessarily orthogonal (which is impossible with a standard PVM).</p>
