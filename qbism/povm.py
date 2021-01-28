@@ -10,7 +10,7 @@ from functools import reduce
 
 from .weyl_heisenberg import *
 from .sics import *
-from .krauss import *
+from .kraus import *
 from .utils import *
 
 # Cell

@@ -95,8 +95,8 @@ povm4 = apply_dims(weyl_heisenberg_povm(qt.rand_ket(4)), [2,2])
 phi = povm_phi(povm4)
 p = dm_probs(entangled, povm4)
 
-ptrA = povm_map(partial_trace_krauss(0, [2,2]), povm4, povm2)
-ptrB = povm_map(partial_trace_krauss(1, [2,2]), povm4, povm2)
+ptrA = povm_map(partial_trace_kraus(0, [2,2]), povm4, povm2)
+ptrB = povm_map(partial_trace_kraus(1, [2,2]), povm4, povm2)
 
 assert np.allclose(dm_probs(entangled.ptrace(0), povm2), ptrA @ phi @ p)
 assert np.allclose(dm_probs(entangled.ptrace(1), povm2), ptrB @ phi @ p)

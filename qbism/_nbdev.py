@@ -29,14 +29,14 @@ index = {"clock": "01weylheisenberg.ipynb",
          "apply_dims": "03povm.ipynb",
          "implement_povm": "03povm.ipynb",
          "discriminator_povm": "03povm.ipynb",
-         "apply_krauss": "04krauss.ipynb",
-         "partial_trace_krauss": "04krauss.ipynb",
-         "povm_map": "04krauss.ipynb"}
+         "apply_kraus": "04kraus.ipynb",
+         "partial_trace_kraus": "04kraus.ipynb",
+         "povm_map": "04kraus.ipynb"}
 
 modules = ["weyl_heisenberg.py",
            "sics.py",
            "povm.py",
-           "krauss.py"]
+           "kraus.py"]
 
 doc_url = "https://heyredhat.github.io/qbism/qbism/"
 

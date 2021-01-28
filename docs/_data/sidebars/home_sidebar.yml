@@ -22,8 +22,8 @@ entries:
       title: POVM's
       url: 03povm.html
     - output: web,pdf
-      title: Krauss Operators
-      url: 04krauss.html
+      title: Kraus Operators
+      url: 04kraus.html
     output: web
     title: qbism
   output: web
