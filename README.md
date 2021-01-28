@@ -90,8 +90,8 @@ Finally, let's check out partial traces:
 entangled = qt.rand_dm(4)
 entangled.dims = [[2,2],[2,2]]
 
-povm2 = weyl_heisenberg_povm(qt.rand_dm(2))
-povm4 = apply_dims(weyl_heisenberg_povm(qt.rand_dm(4)), [2,2])
+povm2 = weyl_heisenberg_povm(qt.rand_ket(2))
+povm4 = apply_dims(weyl_heisenberg_povm(qt.rand_ket(4)), [2,2])
 phi = povm_phi(povm4)
 p = dm_probs(entangled, povm4)
 
