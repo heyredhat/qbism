@@ -5628,7 +5628,7 @@ Qobj data =
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>So this isometry $V$ takes us from $\mathcal{H}_{d}$ to $\mathcal{H}_{d} \otimes \mathcal{H}_{n}$.
-We can extend this to a unitary $U$ (that takes $\mathcal{H}_{d} \otimes \mathcal{H}_{n}$ to $\mathcal{H}_{d} \otimes \mathcal{H}_{n}$) using the QR decomposition. In essence, we use the Gram-Schmidt procedure to fill out the rectangular matrix to a square matrix with extra orthogonal columns. (And then we have to rearrange the columns so that the columns of $V$ appear every $n^{th}$ column, in order to take into account the tensor product structure.) (And also, it doesn't matter that much, but due to a numpy convention, we should multiply by -1.)</p>
+We can extend this to a unitary $U$ (that takes $\mathcal{H}_{d} \otimes \mathcal{H}_{n}$ to $\mathcal{H}_{d} \otimes \mathcal{H}_{n}$) using the QR decomposition. In essence, we use the Gram-Schmidt procedure to fill out the rectangular matrix to a square matrix with extra orthogonal columns. (And then we have to rearrange the columns so that the columns of $V$ appear every $n^{th}$ column, in order to take into account the tensor product structure.)</p>
 
 </div>
 </div>
@@ -5643,9 +5643,9 @@ We can extend this to a unitary $U$ (that takes $\mathcal{H}_{d} \otimes \mathca
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">Q</span><span class="p">,</span> <span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">qr</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;complete&quot;</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">d</span><span class="p">):</span>
-    <span class="n">Q</span><span class="o">.</span><span class="n">T</span><span class="p">[[</span><span class="n">i</span><span class="p">,</span><span class="n">n</span><span class="o">*</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="n">Q</span><span class="o">.</span><span class="n">T</span><span class="p">[[</span><span class="n">n</span><span class="o">*</span><span class="n">i</span><span class="p">,</span><span class="n">i</span><span class="p">]]</span>
-    
-<span class="n">U</span> <span class="o">=</span> <span class="n">qt</span><span class="o">.</span><span class="n">Qobj</span><span class="p">(</span><span class="o">-</span><span class="n">Q</span><span class="p">)</span>
+    <span class="n">Q</span><span class="p">[:,</span><span class="n">i</span><span class="o">*</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">V</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">T</span>
+
+<span class="n">U</span> <span class="o">=</span> <span class="n">qt</span><span class="o">.</span><span class="n">Qobj</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span>
 <span class="n">U</span><span class="o">.</span><span class="n">dims</span> <span class="o">=</span> <span class="p">[[</span><span class="n">d</span><span class="p">,</span> <span class="n">n</span><span class="p">],[</span><span class="n">d</span><span class="p">,</span> <span class="n">n</span><span class="p">]]</span>
 </pre></div>
 
@@ -5739,11 +5739,11 @@ $$U [\rho \otimes \mid 0 \rangle \langle 0 \mid] U^{\dagger} $$
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>povm probs:
-[0.09254805 0.16798441 0.05076046 0.14152689 0.06758388 0.07603646
- 0.13437495 0.12308458 0.14610032]
+[0.14347539 0.12795568 0.12275462 0.12076828 0.0548661  0.06606244
+ 0.11953627 0.08713102 0.15745018]
 system and aux probs:
-[0.09254805 0.16798441 0.05076046 0.14152689 0.06758388 0.07603646
- 0.13437495 0.12308458 0.14610032]
+[0.14347539 0.12795568 0.12275462 0.12076828 0.0548661  0.06606244
+ 0.11953627 0.08713102 0.15745018]
 </pre>
 </div>
 </div>
@@ -5785,9 +5785,9 @@ system and aux probs:
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Quantum object: dims = [[3], [3]], shape = (3, 3), type = oper, isherm = True
 Qobj data =
-[[0.64671348+0.j         0.21279187+0.36409112j 0.11056486+0.19597918j]
- [0.21279187-0.36409112j 0.27499462+0.j         0.14671348+0.00223761j]
- [0.11056486-0.19597918j 0.14671348-0.00223761j 0.0782919 +0.j        ]]
+[[0.64671347+0.j         0.21279188+0.36409112j 0.11056486+0.19597917j]
+ [0.21279188-0.36409112j 0.27499462+0.j         0.14671348+0.00223761j]
+ [0.11056486-0.19597917j 0.14671348-0.00223761j 0.0782919 +0.j        ]]
 Quantum object: dims = [[3], [3]], shape = (3, 3), type = oper, isherm = True
 Qobj data =
 [[0.64671348+0.j         0.21279188+0.36409113j 0.11056486+0.19597917j]
