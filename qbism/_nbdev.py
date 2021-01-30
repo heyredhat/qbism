@@ -39,9 +39,7 @@ index = {"clock": "01weylheisenberg.ipynb",
          "real_rand_ket": "06rics.ipynb",
          "real_rand_dm": "06rics.ipynb",
          "rand_symmetric": "06rics.ipynb",
-         "rand_orthogonal": "06rics.ipynb",
-         "maxim_states": "06rics.ipynb",
-         "maxim_povm": "06rics.ipynb"}
+         "rand_orthogonal": "06rics.ipynb"}
 
 modules = ["weyl_heisenberg.py",
            "sics.py",
