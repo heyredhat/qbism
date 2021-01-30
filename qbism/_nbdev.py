@@ -20,6 +20,7 @@ index = {"clock": "01weylheisenberg.ipynb",
          "hoggar_povm": "02sics.ipynb",
          "povm_gram": "03povm.ipynb",
          "povm_phi": "03povm.ipynb",
+         "quantumness": "03povm.ipynb",
          "dm_probs": "03povm.ipynb",
          "probs_dm": "03povm.ipynb",
          "conditional_probs": "03povm.ipynb",
@@ -32,12 +33,23 @@ index = {"clock": "01weylheisenberg.ipynb",
          "discriminator_povm": "03povm.ipynb",
          "apply_kraus": "04kraus.ipynb",
          "partial_trace_kraus": "04kraus.ipynb",
-         "povm_map": "04kraus.ipynb"}
+         "povm_map": "04kraus.ipynb",
+         "random_ginibre": "05random.ipynb",
+         "random_haar_povm": "05random.ipynb",
+         "random_haar_effect": "05random.ipynb",
+         "real_rand_ket": "06rics.ipynb",
+         "real_rand_dm": "06rics.ipynb",
+         "rand_symmetric": "06rics.ipynb",
+         "rand_orthogonal": "06rics.ipynb",
+         "maxim_states": "06rics.ipynb",
+         "maxim_povm": "06rics.ipynb"}
 
 modules = ["weyl_heisenberg.py",
            "sics.py",
            "povm.py",
-           "kraus.py"]
+           "kraus.py",
+           "random.py",
+           "rics.py"]
 
 doc_url = "https://heyredhat.github.io/qbism/qbism/"
 

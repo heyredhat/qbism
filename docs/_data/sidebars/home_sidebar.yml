@@ -24,6 +24,12 @@ entries:
     - output: web,pdf
       title: Kraus Operators
       url: 04kraus.html
+    - output: web,pdf
+      title: Random POVM's
+      url: 05random.html
+    - output: web,pdf
+      title: RIC's
+      url: 06rics.html
     output: web
     title: qbism
   output: web

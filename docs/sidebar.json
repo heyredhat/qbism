@@ -5,6 +5,8 @@
     "The Weyl-Heisenberg Group": "01weylheisenberg.html",
     "SIC-POVM's": "02sics.html",
     "POVM's": "03povm.html",
-    "Kraus Operators": "04kraus.html"
+    "Kraus Operators": "04kraus.html",
+    "Random POVM's": "05random.html",
+    "RIC's": "06rics.html"
   }
 }
