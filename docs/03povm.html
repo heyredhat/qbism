@@ -150,6 +150,15 @@ $$ \hat{\Phi}^{-1}_{i,j} = tr(\hat{E}_{i} \frac{\hat{E}_{j}}{tr \hat{E}_{j}}) $$
 </div>
     {% endraw %}
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>{% raw %}
+$$ \left\lVert \hat{I} - \hat{\Phi} \right\rVert = \sqrt{tr(\hat{I}-\hat{\Phi})(\hat{I}-\hat{\Phi})}$$
+{% endraw %}</p>
+
+</div>
+</div>
+</div>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -164,7 +173,7 @@ $$ \hat{\Phi}^{-1}_{i,j} = tr(\hat{E}_{i} \frac{\hat{E}_{j}}{tr \hat{E}_{j}}) $$
 <h4 id="quantumness" class="doc_header"><code>quantumness</code><a href="https://github.com/heyredhat/qbism/tree/master/qbism/povm.py#L37" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>quantumness</code>(<strong><code>povm</code></strong>, <strong><code>phi</code></strong>=<em><code>None</code></em>)</p>
 </blockquote>
 <p>A measure of the "quantumness" of a POVM:</p>
-$$ \left\lVert \hat{I} - \hat{\Phi} \right\rVert = \sqrt{tr(\hat{I}-\hat{\Phi})(\hat{I}-\hat{\Phi})$$<p>In other words, the Frobenius distance (2-norm of the vector of singular values) between the magical quantum coherent matrix $\hat{\Phi}$ (aka the "Born matrix") and the identity.</p>
+$$ \left\lVert \hat{I} - \hat{\Phi} \right\rVert = \sqrt{tr(\hat{I}-\hat{\Phi})(\hat{I}-\hat{\Phi})} $$<p>In other words, the Frobenius distance (2-norm of the vector of singular values) between the magical quantum coherent matrix $\hat{\Phi}$ (aka the "Born matrix") and the identity.</p>
 <p>The idea is that the difference between "classical" and "quantum" probabilities amounts to whether or not you stick $\hat{\Phi}$ in between your conditional probability matrix and your vector of probabilities. In the case of complex vector spaces, it's been <a href="https://arxiv.org/abs/quant-ph/0310075">proven</a> than SIC-POVM's minimize this distance under any unitarily invariant norm, such as the Frobenius norm. In other words, SIC-POVM's minimize the quantum deformation of the law of total probability.</p>
 
 </div>
@@ -925,31 +934,7 @@ integer, we assume it refers to the number of subspaces all of the same dimensio
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="SQRTM" class="doc_header"><code>SQRTM</code><a href="https://github.com/heyredhat/qbism/tree/master/qbism/povm.py#L124" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>SQRTM</code>(<strong><code>M</code></strong>)</p>
-</blockquote>
-
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-<div class="output_markdown rendered_html output_subarea ">
-<h4 id="implement_povm" class="doc_header"><code>implement_povm</code><a href="https://github.com/heyredhat/qbism/tree/master/qbism/povm.py#L127" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>implement_povm</code>(<strong><code>E</code></strong>)</p>
+<h4 id="implement_povm" class="doc_header"><code>implement_povm</code><a href="https://github.com/heyredhat/qbism/tree/master/qbism/povm.py#L124" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>implement_povm</code>(<strong><code>E</code></strong>)</p>
 </blockquote>
 <p>Returns a unitary operator $\hat{U}$ implementing a given POVM on $H_{d} \otimes H_{n}$, where $d$ is the dimensionality
 of the original system and $n$ is the dimensionality of the auxilliary system and which is the same as the number of POVM elements.</p>
@@ -1006,7 +991,7 @@ of the original system and $n$ is the dimensionality of the auxilliary system an
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="discriminator_povm" class="doc_header"><code>discriminator_povm</code><a href="https://github.com/heyredhat/qbism/tree/master/qbism/povm.py#L147" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>discriminator_povm</code>(<strong><code>a</code></strong>, <strong><code>b</code></strong>)</p>
+<h4 id="discriminator_povm" class="doc_header"><code>discriminator_povm</code><a href="https://github.com/heyredhat/qbism/tree/master/qbism/povm.py#L144" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>discriminator_povm</code>(<strong><code>a</code></strong>, <strong><code>b</code></strong>)</p>
 </blockquote>
 <p>Returns a non informationally complete POVM which has the special property
 of distinguishing between two arbitrary states $\mid a \rangle$ and $\mid b\rangle$, which are not necessarily orthogonal (which is impossible with a standard PVM).</p>
