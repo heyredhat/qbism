@@ -26,6 +26,39 @@ nb_path: "06rics.ipynb"
     
 <div class="cell border-box-sizing code_cell rendered">
 
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>petersen gram:
+ [[0.16  0.071 0.004 0.004 0.071 0.071 0.004 0.004 0.004 0.004]
+ [0.071 0.16  0.071 0.004 0.004 0.004 0.071 0.004 0.004 0.004]
+ [0.004 0.071 0.16  0.071 0.004 0.004 0.004 0.071 0.004 0.004]
+ [0.004 0.004 0.071 0.16  0.071 0.004 0.004 0.004 0.071 0.004]
+ [0.071 0.004 0.004 0.071 0.16  0.004 0.004 0.004 0.004 0.071]
+ [0.071 0.004 0.004 0.004 0.004 0.16  0.004 0.071 0.071 0.004]
+ [0.004 0.071 0.004 0.004 0.004 0.004 0.16  0.004 0.071 0.071]
+ [0.004 0.004 0.071 0.004 0.004 0.071 0.004 0.16  0.004 0.071]
+ [0.004 0.004 0.004 0.071 0.004 0.071 0.071 0.004 0.16  0.004]
+ [0.004 0.004 0.004 0.004 0.071 0.004 0.071 0.071 0.004 0.16 ]]
+quantumness: 34.047026
+icosahedron gram:
+ [[0.25 0.05 0.05 0.05 0.05 0.05]
+ [0.05 0.25 0.05 0.05 0.05 0.05]
+ [0.05 0.05 0.25 0.05 0.05 0.05]
+ [0.05 0.05 0.05 0.25 0.05 0.05]
+ [0.05 0.05 0.05 0.05 0.25 0.05]
+ [0.05 0.05 0.05 0.05 0.05 0.25]]
+quantumness: 3.354102
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
     {% endraw %}
 
@@ -56,7 +89,7 @@ nb_path: "06rics.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="real_rand_ket" class="doc_header"><code>real_rand_ket</code><a href="https://github.com/heyredhat/qbism/tree/master/qbism/rics.py#L15" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>real_rand_ket</code>(<strong><code>d</code></strong>)</p>
+<h4 id="real_rand_ket" class="doc_header"><code>real_rand_ket</code><a href="https://github.com/heyredhat/qbism/tree/master/qbism/rics.py#L16" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>real_rand_ket</code>(<strong><code>d</code></strong>)</p>
 </blockquote>
 <p>Generates a random ket in real Hilbert space of dimension $d$.</p>
 
@@ -88,7 +121,7 @@ nb_path: "06rics.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="real_rand_dm" class="doc_header"><code>real_rand_dm</code><a href="https://github.com/heyredhat/qbism/tree/master/qbism/rics.py#L22" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>real_rand_dm</code>(<strong><code>d</code></strong>)</p>
+<h4 id="real_rand_dm" class="doc_header"><code>real_rand_dm</code><a href="https://github.com/heyredhat/qbism/tree/master/qbism/rics.py#L23" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>real_rand_dm</code>(<strong><code>d</code></strong>)</p>
 </blockquote>
 <p>Generates a random density matrix for a real Hilbert space of dimension $d$.</p>
 
@@ -120,7 +153,7 @@ nb_path: "06rics.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="rand_symmetric" class="doc_header"><code>rand_symmetric</code><a href="https://github.com/heyredhat/qbism/tree/master/qbism/rics.py#L29" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>rand_symmetric</code>(<strong><code>d</code></strong>)</p>
+<h4 id="rand_symmetric" class="doc_header"><code>rand_symmetric</code><a href="https://github.com/heyredhat/qbism/tree/master/qbism/rics.py#L30" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>rand_symmetric</code>(<strong><code>d</code></strong>)</p>
 </blockquote>
 <p>Generates a random $d \times d$ symmetric matrix. These matrices correspond to observables in real quantum mechanics, being the real analogue of Hermitian matrices: $\hat{S} = \hat{S}^{T}$.</p>
 
@@ -152,7 +185,7 @@ nb_path: "06rics.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="rand_orthogonal" class="doc_header"><code>rand_orthogonal</code><a href="https://github.com/heyredhat/qbism/tree/master/qbism/rics.py#L37" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>rand_orthogonal</code>(<strong><code>d</code></strong>)</p>
+<h4 id="rand_orthogonal" class="doc_header"><code>rand_orthogonal</code><a href="https://github.com/heyredhat/qbism/tree/master/qbism/rics.py#L38" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>rand_orthogonal</code>(<strong><code>d</code></strong>)</p>
 </blockquote>
 <p>Generates a random $d \times d$ orthogonal matrix. These matrices correspond to time evolution in real quantum mechanics, being the real analogue of unitary matrices: $\hat{S}\hat{S}^{T} = \hat{I}$.</p>
 
@@ -254,6 +287,176 @@ nb_path: "06rics.ipynb"
 </pre></div>
 
     </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As an example, let's consider the Petersen RIC in $d=4$ based on the <a href="https://en.wikipedia.org/wiki/Petersen_graph">Petersen Graph</a> and the <a href="http://eusebeia.dyndns.org/4d/rect5cell">Rectified 5-cell</a>.</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="petersen_povm" class="doc_header"><code>petersen_povm</code><a href="https://github.com/heyredhat/qbism/tree/master/qbism/rics.py#L45" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>petersen_povm</code>()</p>
+</blockquote>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>petersen gram:
+ [[0.16  0.071 0.004 0.004 0.071 0.071 0.004 0.004 0.004 0.004]
+ [0.071 0.16  0.071 0.004 0.004 0.004 0.071 0.004 0.004 0.004]
+ [0.004 0.071 0.16  0.071 0.004 0.004 0.004 0.071 0.004 0.004]
+ [0.004 0.004 0.071 0.16  0.071 0.004 0.004 0.004 0.071 0.004]
+ [0.071 0.004 0.004 0.071 0.16  0.004 0.004 0.004 0.004 0.071]
+ [0.071 0.004 0.004 0.004 0.004 0.16  0.004 0.071 0.071 0.004]
+ [0.004 0.071 0.004 0.004 0.004 0.004 0.16  0.004 0.071 0.071]
+ [0.004 0.004 0.071 0.004 0.004 0.071 0.004 0.16  0.004 0.071]
+ [0.004 0.004 0.004 0.071 0.004 0.071 0.071 0.004 0.16  0.004]
+ [0.004 0.004 0.004 0.004 0.071 0.004 0.071 0.071 0.004 0.16 ]]
+quantumness: 34.047026
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In $d=3$, there's a real SIC based on the icosahedron!</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="circular_shifts" class="doc_header"><code>circular_shifts</code><a href="https://github.com/heyredhat/qbism/tree/master/qbism/rics.py#L75" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>circular_shifts</code>(<strong><code>v</code></strong>)</p>
+</blockquote>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="icosahedron_vertices" class="doc_header"><code>icosahedron_vertices</code><a href="https://github.com/heyredhat/qbism/tree/master/qbism/rics.py#L83" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>icosahedron_vertices</code>()</p>
+</blockquote>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="icosahedron_povm" class="doc_header"><code>icosahedron_povm</code><a href="https://github.com/heyredhat/qbism/tree/master/qbism/rics.py#L91" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>icosahedron_povm</code>()</p>
+</blockquote>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>icosahedron gram:
+ [[0.25 0.05 0.05 0.05 0.05 0.05]
+ [0.05 0.25 0.05 0.05 0.05 0.05]
+ [0.05 0.05 0.25 0.05 0.05 0.05]
+ [0.05 0.05 0.05 0.25 0.05 0.05]
+ [0.05 0.05 0.05 0.05 0.25 0.05]
+ [0.05 0.05 0.05 0.05 0.05 0.25]]
+quantumness: 3.354102
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 

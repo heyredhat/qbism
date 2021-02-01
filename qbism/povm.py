@@ -13,13 +13,17 @@ from .sics import *
 from .kraus import *
 
 # Cell
-def povm_gram(E):
+def povm_gram(E, normalized=True):
     r"""
-    The Gram matrix is the matrix of inner products. Given POVM elements $\{\hat{E}\}$, we form the matrix:
+    The Gram matrix is the matrix of inner products. By default, we return the normalized Gram matrix: given POVM elements $\{\hat{E}\}$:
 
     $$ G_{i,j} = tr(\frac{\hat{E}_{i}}{tr \hat{E}_{i}} \frac{\hat{E}_{j}}{tr \hat{E}_{j}})$$
+
+    Otherwise:
+
+    $$ G_{i,j} = tr(\hat{E}_{i}\hat{E}_{j} $$
     """
-    return np.array([[((a/a.tr())*(b/b.tr())).tr() for b in E] for a in E]).real
+    return np.array([[((a/a.tr())*(b/b.tr())).tr() for b in E] for a in E]).real if normalized else np.array([[(a*b).tr() for b in E] for a in E]).real
 
 # Cell
 def povm_phi(E):
@@ -34,7 +38,7 @@ def povm_phi(E):
     return np.linalg.inv(phi_inv)
 
 # Cell
-def quantumness(povm, phi=None):
+def quantumness(povm=None, phi=None):
     r"""
     A measure of the "quantumness" of a POVM:
 
@@ -76,19 +80,17 @@ def conditional_probs(A, B):
     return np.array([[((A[j]*B[i]/B[i].tr())).tr() for i in range(len(B))] for j in range(len(A))]).real
 
 # Cell
-def quantum_inner_product(r, s, phi=None):
+def quantum_inner_product(r, s, povm):
     r"""
-    The quantum inner product expressed in terms of probability vectors. If $\hat{\Phi}$ is not provided,
-    we use the SIC-POVM $\hat{\Phi}$ of the appropriate dimensionality.
+    The quantum inner product expressed in terms of probability vectors.
 
-    $$ tr(\sigma\rho) = d \vec{s} \hat{\Phi} \vec{r}$$
+    $$ tr(\sigma\rho) = \vec{r} \hat{G_{-1}} \vec{s}$$
 
-    Where $\vec{r}$ is the probability vector for $\rho$ and $\vec{s}$ is the probability vector for $\sigma$ with respect to the same POVM.
+    Where $\vec{r}$ is the probability vector for $\rho$ and $\vec{s}$ is the probability vector for $\sigma$ with respect to the same POVM, and $\hat{G_{-1}}$ is the inverse of the unnormalized Gram matrix.
     """
-    d = int(np.sqrt(len(p)))
-    phi = phi if type(phi) != type(None) else sic_gram(d)
-    return d*(s @ phi @ p).real
-
+    d = int(np.sqrt(len(r)))
+    Ginv = np.linalg.inv(povm_gram(povm, normalized=False))
+    return (r @ Ginv @ s).real
 
 # Cell
 def tensor_povm(*povms):
