@@ -41,12 +41,9 @@ index = {"clock": "01weylheisenberg.ipynb",
          "rand_symmetric": "06rics.ipynb",
          "rand_orthogonal": "06rics.ipynb",
          "petersen_povm": "06rics.ipynb",
-         "petersen": "06rics.ipynb",
-         "rho": "06rics.ipynb",
          "circular_shifts": "06rics.ipynb",
          "icosahedron_vertices": "06rics.ipynb",
-         "icosahedron_povm": "06rics.ipynb",
-         "icosahedron": "06rics.ipynb"}
+         "icosahedron_povm": "06rics.ipynb"}
 
 modules = ["weyl_heisenberg.py",
            "sics.py",
